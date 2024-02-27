@@ -1,14 +1,14 @@
 <template>
   <div>
     <h2>Home</h2>
-    {{ productList }}
+
   </div>
 </template>
 
-<script setup>
+<script>
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-
+import { defineComponent, reactive } from "vue";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 //https://firebase.google.com/docs/hosting/quickstart?hl=en&authuser=0&_gl=1*fowqte*_ga*MTUzNDgyNTU3Mi4xNzA4NTAyMjQ3*_ga_CW55HF8NVT*MTcwOTAzMDc3OS4yLjEuMTcwOTAzMDg0MC42MC4wLjA.
@@ -29,16 +29,28 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+export default defineComponent({
+  async setup() {
+    const productList = reactive({ list: [] });
+    const db = getFirestore(app);
+    await getProducts(db);
+    async function getProducts(db) {
+      const productsCol = collection(db, "Product");
+      const productSnapshot = await getDocs(productsCol);
+      const products = productSnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
 
-const db = getFirestore(app);
-async function getProducts(db) {
-  const productsCol = collection(db, "Product");
-  const productSnapshot = await getDocs(productsCol);
-  const productList = productSnapshot.docs.map((doc) => doc.data());
-  console.log(productList);
-  return productList;
-}
-getProducts(db);
+      productList.list = products;
+      console.log(productList);
+    }
+
+    return {
+      productList,
+    };
+  },
+});
 </script>
 
 <style></style>
