@@ -8,7 +8,7 @@
           <li><NuxtLink to="/products" class="btn">Prdoukter</NuxtLink></li>
           <li><NuxtLink to="/blogs">Blog</NuxtLink></li>
           <li><NuxtLink to="/events">Events</NuxtLink></li>
-          <li><NuxtLink to="/about" >Om</NuxtLink></li>
+          <li><NuxtLink to="/about">Om</NuxtLink></li>
         </ul>
       </nav>
     </header>
@@ -16,7 +16,7 @@
     <div class="container mx-auto p-4">
       <slot />
     </div>
-    <footer class="border-t-2 bg-green-300">
+    <footer >
       <address class="flex flex-col container mx-auto p-4">
         <p>Victoria Erlingsson</p>
         <p>28267 Vittsjö</p>
