@@ -1,13 +1,14 @@
 <template>
   <div>
-
+    <h2>Events</h2>
+    
   </div>
 </template>
 
-<script setup>
+<script  setup>
 
 </script>
 
-<style  scoped>
+<style>
 
 </style>

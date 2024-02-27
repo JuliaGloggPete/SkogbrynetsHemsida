@@ -1,14 +1,14 @@
 <template>
   <div>
-    <h2>Bloggs</h2>
-
+    <h2>Om</h2>
+    
   </div>
 </template>
 
-<script setup>
+<script  setup>
 
 </script>
 
-<style scoped>
+<style>
 
 </style>
