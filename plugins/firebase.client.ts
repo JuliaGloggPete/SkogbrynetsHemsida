@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 //import { getAuth } from "firebase/auth"
 //import { getAnalytics } from "firebase/analytics"
-
 export default defineNuxtPlugin((nuxtApp) => {
   const config = useRuntimeConfig();
 
