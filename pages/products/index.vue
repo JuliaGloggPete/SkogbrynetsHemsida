@@ -1,38 +1,23 @@
 <template>
   <div>
+    <h2>Produkter</h2>
 
-
-
-
-<h2>Produkter</h2>
-
-<div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-4 gap-4">
       <div v-for="product in productList.list" :key="product.id">
-        <NuxtLink :to="`/products/${product.id}`">
-          {{ product.productTitle }}
-
-          {{ product.price }}
-          <p v-for="color in product.colors">
-            {{ color.colorName }}
-          </p>
-        </NuxtLink>
+        <ProductCard :product="product" />
       </div>
     </div>
   </div>
 </template>
 
-<script  >
-definePageMeta({
-  layout: 'default'
-})
-
+<script>
 import { defineComponent, reactive, inject } from "vue";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 export default defineComponent({
   async setup() {
     const productList = reactive({ list: [] });
-    const firestore = inject('firestore');
+    const firestore = inject("firestore");
     const db = getFirestore(firestore);
     await getProducts(db);
     async function getProducts(db) {
@@ -44,7 +29,6 @@ export default defineComponent({
       }));
 
       productList.list = products;
-      
     }
 
     return {
@@ -52,9 +36,6 @@ export default defineComponent({
     };
   },
 });
-
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
