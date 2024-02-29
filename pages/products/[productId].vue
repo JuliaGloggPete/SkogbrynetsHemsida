@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2>Produkter {{ productId }}</h2>
     <ProductDetails :product="productData" />
   </div>
 </template>
