@@ -14,4 +14,7 @@ footer {
   .btn {
     @apply bg-[#afc0b4] text-white px-3 py-2 rounded-md text-sm;
   }
+  .card {
+    @apply p-3 rounded bg-white shadow-md h-full;
+  }
 }
