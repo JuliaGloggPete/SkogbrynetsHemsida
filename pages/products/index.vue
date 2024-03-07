@@ -14,6 +14,8 @@
 import { defineComponent, reactive, inject } from "vue";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
+
+
 export default defineComponent({
   async setup() {
     const productList = reactive({ list: [] });
@@ -36,7 +38,7 @@ export default defineComponent({
       productList.list = products;
     }
 
-    //onMountet - fetch products
+    //useHead({ title: "Skogsbrynets produkter" });
 
     return {
       productList,
