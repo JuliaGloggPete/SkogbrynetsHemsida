@@ -19,6 +19,11 @@ export default defineComponent({
     const productList = reactive({ list: [] });
     const firestore = inject("firestore");
     const db = getFirestore(firestore);
+
+    onMounted(async () => {
+      await getProducts(db);
+    });
+
     await getProducts(db);
     async function getProducts(db) {
       const productsCol = collection(db, "Product");
@@ -30,6 +35,8 @@ export default defineComponent({
 
       productList.list = products;
     }
+
+    //onMountet - fetch products
 
     return {
       productList,
