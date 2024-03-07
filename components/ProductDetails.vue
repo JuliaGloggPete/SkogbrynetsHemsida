@@ -15,7 +15,7 @@
         <p class="font-bold border-b-2 mb-4 pb-2">
           <strong>Produktinformation: </strong> {{ product.productInformation }}
         </p>
-        <p class="text--xl my-7">
+        <p class="text-xl my-7">
           <strong>Pris: </strong> {{ product.price }} kr
         </p>
         <p><strong>Förpackningssstorlek:</strong> {{ product.packaging }}</p>
@@ -23,6 +23,11 @@
         <div v-for="color in product.colors">
           <p>{{ color.colorName }}</p>
         </div>
+
+        <button class="btn flex">
+          <i class="material-icons mr-2">add_shopping_cart</i>
+          <span>Lägg till</span>
+        </button>
       </div>
     </div>
   </div>
@@ -32,4 +37,8 @@
 const { product } = defineProps(["product"]);
 </script>
 
-<style scoped></style>
+<style scoped>
+img {
+  max-width: 400px;
+}
+</style>

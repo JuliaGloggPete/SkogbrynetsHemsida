@@ -25,6 +25,13 @@ export default defineComponent({
       // docSnap.data() will be undefined in this case
       console.log("No such document!");
     }
+    if (!productData) {
+      throw createError({
+        statusCode: 404,
+        statusMessage: "Product not found",
+        fatal: true,
+      });
+    }
 
     return { productId, productData };
   },
